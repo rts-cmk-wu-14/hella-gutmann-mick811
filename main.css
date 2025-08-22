@@ -15,6 +15,14 @@ body {
 *******************************/
 .q5-wrapper {
   background: #efefef;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.q5-wrapper .q5-block:nth-child(odd) {
+  background: #00FF00;
 }
 
 .q5-wrapper .q5-block {
@@ -22,6 +30,7 @@ body {
   height: 100px;
   margin: 10px;
   background: #333;
+  border-radius: 9px;
 }
 
 /* Add your code after this line */
@@ -30,3 +39,17 @@ body {
 * QUESTION 6.
 *******************************/
 /* Add your code after this line */
+header {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.file-name {
+  color: #00F;
+  font-weight: bold;
+}
+
+#my-name {
+  text-transform: uppercase;
+}

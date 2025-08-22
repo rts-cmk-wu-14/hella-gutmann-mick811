@@ -2,7 +2,8 @@
  * QUESTION 1.
  *******************************/
 function executeQ1() {
-  // Answer goes here.
+  const name = document.getElementById("my-name");
+  name.innerHTML = "Mikkel Nothlev Elvers";
 }
 
 /********************************
@@ -17,7 +18,12 @@ const listItems = [
 ];
 
 function executeQ2() {
-  // Answer goes here.
+  const list = document.getElementById("q2-list");
+  listItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.innerHTML = item;
+    list.appendChild(li);
+  });
 }
 
 /********************************
@@ -66,7 +72,35 @@ function executeQ3() {
     "K20C1"
   );
 
-  // Answer goes here.
+  vehicle.vehicleColor = "BlueViolet";
+  
+  const vehicle2 = new Vehicle(
+    vehicle.make,
+    vehicle.model,
+    vehicle.modelType,
+    vehicle.modelSeries,
+    vehicle.engineCode
+  );
+  vehicle2.vehicleColor = "Red";
+  
+  const vehicle3 = new Vehicle(
+    vehicle.make,
+    vehicle.model,
+    vehicle.modelType,
+    vehicle.modelSeries,
+    vehicle.engineCode
+  );
+  vehicle3.vehicleColor = "Orange";
+  
+  const list = document.getElementById("q3-list");
+  
+  const vehicles = [vehicle, vehicle2, vehicle3];
+  vehicles.forEach((v) => {
+    const li = document.createElement("li");
+    li.innerHTML = v.vehicleName;
+    li.style.color = v.color;
+    list.appendChild(li);
+  });
 }
 
 /********************************
@@ -80,4 +114,17 @@ function executeQ4() {
   const dataList = [];
 
   // Get the data in fileURL using AJAX, process the reponse and add it to the HTML.
+  fetch(fileURL)
+    .then((response) => response.json())
+    .then((data) => {
+      const names = data.members.map((member) => member.name);
+      const answer = document.getElementById("q4-answer");
+      answer.innerHTML = JSON.stringify(names);
+    });
 }
+
+// Execute all functions when DOM is loaded
+executeQ1();
+executeQ2();
+executeQ3();
+executeQ4();
